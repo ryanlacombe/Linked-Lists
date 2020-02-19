@@ -5,9 +5,9 @@ class Node
 {
 public:
 
-	Node(const T& data) : data{ data }
+	Node(const T& data) : data{ data } {}
 
 	T data;
 	Node<T>* next = nullptr;
-	Node<T>* Previous = nullptr;
+	Node<T>* previous = nullptr;
 };
