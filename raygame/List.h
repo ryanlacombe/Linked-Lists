@@ -57,10 +57,10 @@ inline List<T>::~List()
 template<typename T>
 inline void List<T>::intializeList()
 {
-	for (int i = ; i < Length(); i++)
+	/*for (int i = ; i < Length(); i++)
 	{
 
-	}
+	}*/
 
 	mCount = 0;
 }
@@ -99,13 +99,13 @@ inline T List<T>::back()
 template<typename T>
 inline Iterator<T> List<T>::Begin()
 {
-	return Iterator<T>();
+	return Iterator<T>(m_first);
 }
 
 template<typename T>
 inline Iterator<T> List<T>::End()
 {
-	return Iterator<T>();
+	return Iterator<T>(m_last);
 }
 
 template<typename T>

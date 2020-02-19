@@ -24,6 +24,7 @@ int main()
 	SetTargetFPS(60);
 	//--------------------------------------------------------------------------------------
 
+	UnorderedList<int> unorderedList;
 	// Main game loop
 	while (!WindowShouldClose())    // Detect window close button or ESC key
 	{
