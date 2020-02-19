@@ -16,19 +16,19 @@ public:
 template<typename T>
 inline bool UnorderedList<T>::search(const T & data)
 {
-	Node<T>* searchNode = new Node<T>(data);
+	Node<T>* searchNode = List<T>::m_first;
 
-	for (auto i = List<T>::Begin(); i != List<T>::End(); i++)
+	while (searchNode != nullptr)
 	{
-		if (searchNode->data == *i )
+		if (searchNode->data == data)
 		{
 			return true;
 		}
-		else if (i == List<T>::End())
-		{
-			return false;
-		}
+		
+		searchNode = searchNode->next;
 	}
+
+	return false;
 }
 
 template<typename T>

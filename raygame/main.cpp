@@ -11,6 +11,8 @@
 
 #include "raylib.h"
 #include "UnorderedList.h"
+#include <iostream>
+
 
 int main()
 {
@@ -25,6 +27,12 @@ int main()
 	//--------------------------------------------------------------------------------------
 
 	UnorderedList<int> unorderedList;
+
+	unorderedList.insertFirst(8);
+	unorderedList.insertLast(10);
+
+	std::cout << unorderedList.search(8);
+
 	// Main game loop
 	while (!WindowShouldClose())    // Detect window close button or ESC key
 	{
