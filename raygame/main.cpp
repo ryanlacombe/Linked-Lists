@@ -29,9 +29,16 @@ int main()
 	UnorderedList<int> unorderedList;
 
 	unorderedList.insertFirst(8);
+	unorderedList.insertFirst(22);
 	unorderedList.insertLast(10);
+	unorderedList.insertLast(24);
 
 	std::cout << unorderedList.search(8);
+	std::cout << unorderedList.search(15);
+
+	unorderedList.deleteNode(24);
+	std::cout << unorderedList.search(24) << std::endl;
+	unorderedList.printList();
 
 	// Main game loop
 	while (!WindowShouldClose())    // Detect window close button or ESC key

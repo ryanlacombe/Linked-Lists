@@ -57,10 +57,17 @@ inline List<T>::~List()
 template<typename T>
 inline void List<T>::intializeList()
 {
-	/*for (int i = ; i < Length(); i++)
+	while (m_last->next == nullptr)
 	{
+		if (m_last->previous == nullptr)
+		{
+			delete m_last;
+			break;
+		}
 
-	}*/
+		m_first = m_first->next;
+		delete m_first->previous;
+	}
 
 	mCount = 0;
 }
@@ -111,9 +118,12 @@ inline Iterator<T> List<T>::End()
 template<typename T>
 inline void List<T>::copyList(List<T>& listToCopy)
 {
+	List<T>* listCopy = new List<T>;
 
-	for (int i = 0; i < Length(); i++)
+	while (listToCopy.m_first != nullptr)
 	{
+		listCopy->m_first = listToCopy.m_first;
 
+		listToCopy.m_first = listToCopy.m_first->next;
 	}
 }
