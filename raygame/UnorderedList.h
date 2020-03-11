@@ -36,8 +36,10 @@ inline bool UnorderedList<T>::search(const T & data)
 template<typename T>
 inline void UnorderedList<T>::insertFirst(const T & data)
 {
+	//Creates a new node with the passed in data
 	Node<T>* fNode = new Node<T>(data);
 
+	//if the last node is nullptr make the last node the new node
 	if (List<T>::m_last == nullptr)
 	{
 		List<T>::m_last = fNode;
@@ -58,10 +60,13 @@ inline void UnorderedList<T>::insertFirst(const T & data)
 template<typename T>
 inline void UnorderedList<T>::insertLast(const T & data)
 {
+	//Create a new node with the passed in data
 	Node<T>* lNode = new Node<T>(data);
 
+	//if the first node is nullptr
 	if (List<T>::m_first == nullptr)
 	{
+		//set the first node as the new node
 		List<T>::m_first = lNode;
 	}
 
@@ -78,34 +83,47 @@ inline void UnorderedList<T>::insertLast(const T & data)
 template<typename T>
 inline void UnorderedList<T>::deleteNode(const T & data)
 {
+	//Create a new node and set it to the first node
 	Node<T>* searchNode = List<T>::m_first;
 
+	//While the new node is not nullptr
 	while (searchNode != nullptr)
 	{
+		//if the searchnode's data is equal to the data passed in
 		if (searchNode->data == data)
 		{
+			//If the searchnode's next isn't nullptr
 			if (searchNode->next != nullptr)
 			{
+				//Set the searchnode's next's previous to the searchnode's previous
 				searchNode->next->previous = searchNode->previous;
 			}
+			//Otherwise
 			else
 			{
+				//Set the lastNode to the previous of the searchnode
 				List<T>::m_last = searchNode->previous;
 			}
 
+			//If the searchnode's previous isn't nullptr
 			if (searchNode->previous != nullptr)
 			{
+				//Set the searchnode's previous' next to the searchnode's next
 				searchNode->previous->next = searchNode->next;
 			}
+			//Otherwise
 			else
 			{
+				//Set the firstNode to the searchnode's next
 				List<T>::m_first = searchNode->next;
 			}
 
+			//Delete the search node
 			delete searchNode;
+			//End the while loop
 			break;
 		}
-
+		//Iterate through the list
 		searchNode = searchNode->next;
 	}
 }
@@ -117,7 +135,7 @@ inline void UnorderedList<T>::printList()
 
 	while ( printNode != nullptr)
 	{
-		std::cout << printNode->data;
+		std::cout << printNode->data << " ";
 
 		printNode = printNode->next;
 	}
